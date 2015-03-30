@@ -27,7 +27,7 @@ import java.text.MessageFormat;
 
 import org.jlib.value.formatter.PrintfNamedValueFormatter;
 
-public final class Messages {
+public final class MessageUtility {
 
     public static final MessageFactory INITIAL_DEFAULT_MESSAGE_FACTORY = EagerMessage::new;
 
@@ -74,5 +74,5 @@ public final class Messages {
         return new StringBuilder(textLength + argumentsCount * EXPECTED_ARGUMENT_LENGTH);
     }
 
-    private Messages() {}
+    private MessageUtility() {}
 }
