@@ -29,8 +29,8 @@ public final class DefaultMessageSetup {
         return INSTANCE;
     }
 
-    private MessageFactory defaultMessageFactory = MessageUtility.INITIAL_DEFAULT_MESSAGE_FACTORY;
-    private MessageStyle defaultMessageStyle = MessageUtility.createInitialDefaultMessageStyle();
+    private MessageFactory defaultMessageFactory = Messages.INITIAL_DEFAULT_MESSAGE_FACTORY;
+    private MessageStyle defaultMessageStyle = Messages.createInitialDefaultMessageStyle();
 
     private DefaultMessageSetup() {}
 
