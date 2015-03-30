@@ -33,7 +33,7 @@ public interface MessageFactory {
     }
 
     default Message newMessage(final String text, final MessageStyle messageStyle) {
-        return newMessage(Messages.createBuilder(text.length(), Messages.EXPECTED_ARGUMENTS_COUNT).append(text), messageStyle);
+        return newMessage(MessageUtility.createBuilder(text.length(), MessageUtility.EXPECTED_ARGUMENTS_COUNT).append(text), messageStyle);
     }
 
     default Message newMessage(final StringBuilder builder) {
