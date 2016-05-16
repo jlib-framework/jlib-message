@@ -25,18 +25,20 @@ import org.assertj.core.api.AbstractAssert;
 import org.assertj.core.internal.Objects;
 import org.assertj.core.internal.Strings;
 
-public class MessageAssert extends AbstractAssert<MessageAssert, Message> {
-
-    public static MessageAssert assertThat(final Message actual) {
-        return new MessageAssert(actual);
-    }
+public class MessageAssert
+    extends AbstractAssert<MessageAssert, Message> {
 
     public MessageAssert(final Message actual) {
         super(actual, MessageAssert.class);
     }
 
+    public static MessageAssert assertThat(final Message actual) {
+        return new MessageAssert(actual);
+    }
+
     public MessageAssert isEqualTo(final String expected) {
         isNotNull();
+        // TODO: change method call, otherwise stacktrace starts here
         Objects.instance().assertEqual(info, actual.toString(), expected);
         return this;
     }
