@@ -29,7 +29,7 @@ package org.jlib.message;
  * @author Igor Akkerman
  */
 public class EagerMessage
-extends StyledMessage {
+    extends StyledMessage {
 
     private static final long serialVersionUID = - 1625043299945178724L;
 
@@ -55,7 +55,8 @@ extends StyledMessage {
         if (builder.length() == 0 && argumentsCount == 0)
             builder.append(getMessageStyle().getBeforeArguments());
         else if (builder.length() != 0 && argumentsCount == 0)
-            builder.append(getMessageStyle().getBetweenTextAndArguments()).append(getMessageStyle().getBeforeArguments());
+            builder.append(getMessageStyle().getBetweenTextAndArguments()).append(
+                getMessageStyle().getBeforeArguments());
         else if (builder.length() != 0)
             builder.append(getMessageStyle().getBetweenArguments());
     }
