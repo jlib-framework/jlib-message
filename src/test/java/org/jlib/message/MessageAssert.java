@@ -37,6 +37,7 @@ public class MessageAssert extends AbstractAssert<MessageAssert, Message> {
 
     public MessageAssert isEqualTo(final String expected) {
         isNotNull();
+        // TODO: change method call, otherwise stacktrace starts here
         Objects.instance().assertEqual(info, actual.toString(), expected);
         return this;
     }

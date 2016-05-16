@@ -25,9 +25,11 @@ import java.util.Formatter;
 
 import java.text.MessageFormat;
 
+import lombok.experimental.UtilityClass;
 import org.jlib.value.formatter.PrintfNamedValueFormatter;
 
-public final class MessageUtility {
+@UtilityClass
+public final class Messages {
 
     public static final MessageFactory INITIAL_DEFAULT_MESSAGE_FACTORY = EagerMessage::new;
 
@@ -59,7 +61,7 @@ public final class MessageUtility {
     public static MessageStyle createInitialDefaultMessageStyle() {
         final MessageStyle defaultMessageStyle = new MessageStyle();
 
-        defaultMessageStyle.setArgumentFormatter(new PrintfNamedValueFormatter("%s='%s'"));
+        defaultMessageStyle.setArgumentFormatter(new PrintfNamedValueFormatter("%s: <%s>"));
         defaultMessageStyle.setBetweenTextAndArguments(" ");
         defaultMessageStyle.setBetweenArguments(" ");
 
@@ -67,12 +69,10 @@ public final class MessageUtility {
     }
 
     public static MessageFactory getFactory() {
-        return DefaultMessageSetup.getInstance().getDefaultMessageFactory();
+        return DefaultMessageSetup.INSTANCE.getDefaultMessageFactory();
     }
 
     public static StringBuilder createBuilder(final int textLength, final int argumentsCount) {
         return new StringBuilder(textLength + argumentsCount * EXPECTED_ARGUMENT_LENGTH);
     }
-
-    private MessageUtility() {}
 }

@@ -23,8 +23,11 @@ package org.jlib.message;
 
 import java.io.Serializable;
 
+import lombok.Data;
 import org.jlib.value.formatter.NamedValueFormatter;
 
+@Data
+@SuppressWarnings("FieldMayBeFinal")
 public class MessageStyle
 implements Serializable {
 
@@ -35,44 +38,4 @@ implements Serializable {
     private String beforeArguments = "";
     private String betweenArguments = "";
     private String afterArguments = "";
-
-    public NamedValueFormatter<Object> getArgumentFormatter() {
-        return argumentFormatter;
-    }
-
-    public void setArgumentFormatter(final NamedValueFormatter<Object> argumentFormatter) {
-        this.argumentFormatter = argumentFormatter;
-    }
-
-    public void setBetweenTextAndArguments(final String betweenTextAndArguments) {
-        this.betweenTextAndArguments = betweenTextAndArguments;
-    }
-
-    public String getBetweenTextAndArguments() {
-        return betweenTextAndArguments;
-    }
-
-    public void setBetweenArguments(final String betweenArguments) {
-        this.betweenArguments = betweenArguments;
-    }
-
-    public String getBeforeArguments() {
-        return beforeArguments;
-    }
-
-    public void setBeforeArguments(final String beforeArguments) {
-        this.beforeArguments = beforeArguments;
-    }
-
-    public String getBetweenArguments() {
-        return betweenArguments;
-    }
-
-    public String getAfterArguments() {
-        return afterArguments;
-    }
-
-    public void setAfterArguments(final String afterArguments) {
-        this.afterArguments = afterArguments;
-    }
 }
