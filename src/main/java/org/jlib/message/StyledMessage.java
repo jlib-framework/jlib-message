@@ -23,6 +23,9 @@ package org.jlib.message;
 
 import java.io.Serializable;
 
+import lombok.Data;
+
+@Data
 public abstract class StyledMessage
 implements Message,
            Serializable {
@@ -30,12 +33,4 @@ implements Message,
     private static final long serialVersionUID = - 8370150125520790054L;
 
     private final MessageStyle messageStyle;
-
-    protected StyledMessage(final MessageStyle messageStyle) {
-        this.messageStyle = messageStyle;
-    }
-
-    public MessageStyle getMessageStyle() {
-        return messageStyle;
-    }
 }

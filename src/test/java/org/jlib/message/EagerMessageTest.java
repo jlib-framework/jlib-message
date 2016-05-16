@@ -21,51 +21,38 @@
 
 package org.jlib.message;
 
+import static org.jlib.message.MessageAssert.assertThat;
+import static org.jlib.message.Messages.message;
+import static org.jlib.value.Values.named;
 import org.jlib.value.formatter.MessageFormatNamedValueFormatter;
 import org.jlib.value.formatter.PrintfNamedValueFormatter;
-
-import static org.jlib.message.MessageAssert.assertThat;
-import static org.jlib.message.MessageUtility.message;
-import static org.jlib.value.Values.named;
 import org.junit.Before;
 import org.junit.Test;
 
 public class EagerMessageTest {
 
-    private static final MessageStyle COLON_PRINTF_CONFIG;
+    private static final MessageStyle COLON_PRINTF_CONFIG = new MessageStyle()
+        .setArgumentFormatter(new PrintfNamedValueFormatter("%s: %s"))
+        .setBetweenTextAndArguments(" ")
+        .setBeforeArguments("(")
+        .setBetweenArguments("; ")
+        .setAfterArguments(")");
 
-    static {
-        COLON_PRINTF_CONFIG = new MessageStyle();
-        COLON_PRINTF_CONFIG.setArgumentFormatter(new PrintfNamedValueFormatter("%s: %s"));
-        COLON_PRINTF_CONFIG.setBetweenTextAndArguments(" ");
-        COLON_PRINTF_CONFIG.setBeforeArguments("(");
-        COLON_PRINTF_CONFIG.setBetweenArguments("; ");
-        COLON_PRINTF_CONFIG.setAfterArguments(")");
-    }
+    private static final MessageStyle EQUALS_QUOTE_PRINTF_CONFIG = new MessageStyle()
+        .setArgumentFormatter(new PrintfNamedValueFormatter("%s='%s'"))
+        .setBetweenTextAndArguments(" ")
+        .setBeforeArguments("[")
+        .setBetweenArguments(" ")
+        .setAfterArguments("]");
 
-    private static final MessageStyle EQUALS_QUOTE_PRINTF_CONFIG;
-
-    static {
-        EQUALS_QUOTE_PRINTF_CONFIG = new MessageStyle();
-        EQUALS_QUOTE_PRINTF_CONFIG.setArgumentFormatter(new PrintfNamedValueFormatter("%s='%s'"));
-        EQUALS_QUOTE_PRINTF_CONFIG.setBetweenTextAndArguments(" ");
-        EQUALS_QUOTE_PRINTF_CONFIG.setBeforeArguments("[");
-        EQUALS_QUOTE_PRINTF_CONFIG.setBetweenArguments(" ");
-        EQUALS_QUOTE_PRINTF_CONFIG.setAfterArguments("]");
-    }
-
-    private static final MessageStyle COLON_MF_CONFIG;
-
-    static {
-        COLON_MF_CONFIG = new MessageStyle();
-        COLON_MF_CONFIG.setArgumentFormatter(new MessageFormatNamedValueFormatter("{0}: {1}"));
-        COLON_MF_CONFIG.setBetweenTextAndArguments(" ");
-        COLON_MF_CONFIG.setBetweenArguments("; ");
-    }
+    private static final MessageStyle COLON_MF_CONFIG = new MessageStyle()
+        .setArgumentFormatter(new MessageFormatNamedValueFormatter("{0}: {1}"))
+        .setBetweenTextAndArguments(" ")
+        .setBetweenArguments("; ");
 
     @Before
     public void initializeDefaultMessageStyle() {
-        DefaultMessageSetup.getInstance().setDefaultMessageStyle(EQUALS_QUOTE_PRINTF_CONFIG);
+        DefaultMessageSetup.INSTANCE.setDefaultMessageStyle(EQUALS_QUOTE_PRINTF_CONFIG);
     }
 
     @Test
@@ -105,8 +92,8 @@ public class EagerMessageTest {
 
     @Test
     public void messageWithTextAndArguments() {
-        final Message message = /*
-         */ message("Something went wrong.").with("dummyName", 1).with("dummerName", "Dummer Value");
+        final Message message =
+            message("Something went wrong.").with("dummyName", 1).with("dummerName", "Dummer Value");
 
         assertThat(message).isEqualTo("Something went wrong. [dummyName='1' dummerName='Dummer Value']");
     }
@@ -121,10 +108,10 @@ public class EagerMessageTest {
     @Test
     public void messageWithTextAndNamedArgumentsInSpecifiedDefaultFormat() {
 
-        DefaultMessageSetup.getInstance().setDefaultMessageStyle(COLON_PRINTF_CONFIG);
+        DefaultMessageSetup.INSTANCE.setDefaultMessageStyle(COLON_PRINTF_CONFIG);
 
-        final Message message = /*
-         */ message("Something went wrong.").with(named("dummyName", 1),
+        final Message message =
+            message("Something went wrong.").with(named("dummyName", 1),
                                                   named("dummerName", "Dummer Value"));
 
         assertThat(message).isEqualTo("Something went wrong. (dummyName: 1; dummerName: Dummer Value)");
@@ -132,8 +119,8 @@ public class EagerMessageTest {
 
     @Test
     public void messageWithTextAndNamedArguments() {
-        final Message message = /*
-         */ message("Something went wrong.").with(named("dummyName", 1),
+        final Message message =
+            message("Something went wrong.").with(named("dummyName", 1),
                                                   named("dummerName", "Dummer Value"));
 
         assertThat(message).isEqualTo("Something went wrong. [dummyName='1' dummerName='Dummer Value']");
@@ -141,8 +128,8 @@ public class EagerMessageTest {
 
     @Test
     public void messageWithTextArgumentsInSpecifiedPrintfFormat() {
-        final Message message = /*
-         */ message("Something went wrong.", COLON_PRINTF_CONFIG).with("dummyName", 1)
+        final Message message =
+            message("Something went wrong.", COLON_PRINTF_CONFIG).with("dummyName", 1)
                                                                  .with("dummerName", "Dummer Value");
 
         assertThat(message).isEqualTo("Something went wrong. (dummyName: 1; dummerName: Dummer Value)");
@@ -150,9 +137,9 @@ public class EagerMessageTest {
 
     @Test
     public void messageWithTextAndArgumentsInSpecifiedMfFormat() {
-        final Message message = /*
-          */ message("Something went wrong.", COLON_MF_CONFIG).with("dummyName", 1)
-                                                              .with("dummerName", "Dummer Value");
+        final Message message =
+            message("Something went wrong.", COLON_MF_CONFIG).with("dummyName", 1)
+                                                             .with("dummerName", "Dummer Value");
 
         assertThat(message).isEqualTo("Something went wrong. dummyName: 1; dummerName: Dummer Value");
     }

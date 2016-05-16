@@ -21,18 +21,16 @@
 
 package org.jlib.message;
 
+import static lombok.AccessLevel.PRIVATE;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor(access = PRIVATE)
 public final class DefaultMessageSetup {
 
-    private static final DefaultMessageSetup INSTANCE = new DefaultMessageSetup();
+    public static final DefaultMessageSetup INSTANCE = new DefaultMessageSetup();
 
-    public static DefaultMessageSetup getInstance() {
-        return INSTANCE;
-    }
-
-    private MessageFactory defaultMessageFactory = MessageUtility.INITIAL_DEFAULT_MESSAGE_FACTORY;
-    private MessageStyle defaultMessageStyle = MessageUtility.createInitialDefaultMessageStyle();
-
-    private DefaultMessageSetup() {}
+    private MessageFactory defaultMessageFactory = Messages.INITIAL_DEFAULT_MESSAGE_FACTORY;
+    private MessageStyle defaultMessageStyle = Messages.createInitialDefaultMessageStyle();
 
     public MessageFactory getDefaultMessageFactory() {
         return defaultMessageFactory;
