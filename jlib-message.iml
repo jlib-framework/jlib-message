@@ -10,7 +10,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.16.8" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.16.10" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.16.10" level="project" />
     <orderEntry type="module" module-name="jlib-codequality" />
     <orderEntry type="module" module-name="jlib-value" />
     <orderEntry type="library" name="Maven: org.checkerframework:checker-qual:2.0.0" level="project" />
