@@ -27,7 +27,6 @@ import lombok.Data;
 import org.jlib.value.formatter.NamedValueFormatter;
 
 @Data
-@SuppressWarnings("FieldMayBeFinal")
 public class MessageStyle
     implements Serializable {
 
