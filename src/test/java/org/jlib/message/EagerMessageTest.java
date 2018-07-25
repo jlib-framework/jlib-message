@@ -21,13 +21,14 @@
 
 package org.jlib.message;
 
+import org.jlib.value.formatter.MessageFormatNamedValueFormatter;
+import org.jlib.value.formatter.PrintfNamedValueFormatter;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import static org.jlib.message.MessageAssert.assertThat;
 import static org.jlib.message.Messages.message;
 import static org.jlib.value.Values.named;
-import org.jlib.value.formatter.MessageFormatNamedValueFormatter;
-import org.jlib.value.formatter.PrintfNamedValueFormatter;
-import org.junit.Before;
-import org.junit.Test;
 
 public class EagerMessageTest {
 
@@ -50,7 +51,7 @@ public class EagerMessageTest {
         .setBetweenTextAndArguments(" ")
         .setBetweenArguments("; ");
 
-    @Before
+    @BeforeEach
     public void initializeDefaultMessageStyle() {
         DefaultMessageSetup.INSTANCE.setDefaultMessageStyle(EQUALS_QUOTE_PRINTF_CONFIG);
     }
