@@ -7,10 +7,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="jlib-message" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="hurz_main" target="1.8" />
+      <module name="hurz_test" target="1.8" />
       <module name="jlib-message" target="8" />
       <module name="jlib-message_main" target="1.8" />
       <module name="jlib-message_test" target="1.8" />

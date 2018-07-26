@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/jlib-message.iml" filepath="$PROJECT_DIR$/jlib-message.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jlib-message.iml" filepath="$PROJECT_DIR$/.idea/modules/jlib-message.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/jlib-message_main.iml" filepath="$PROJECT_DIR$/.idea/modules/jlib-message_main.iml" group="jlib-message" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/jlib-message_test.iml" filepath="$PROJECT_DIR$/.idea/modules/jlib-message_test.iml" group="jlib-message" />
     </modules>
