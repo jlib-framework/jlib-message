@@ -28,8 +28,6 @@ plugins {
     id 'net.researchgate.release' version '2.6.0'
 }
 
-version = '1.0.0-SNAPSHOT'
-
 description = 'jlib message framework'
 ext.detailedDescription = 'jlib framework providing means to use standardize message formats througout an application'
 
@@ -42,3 +40,4 @@ repositories {
 dependencies {
     implementation 'org.jlib:jlib-value:1.0.0-SNAPSHOT'
 }
+
