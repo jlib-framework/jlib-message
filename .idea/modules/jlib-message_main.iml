@@ -9,6 +9,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.projectlombok:lombok:1.18.0" level="project" />
-    <orderEntry type="library" name="Gradle: org.jlib:jlib-value:1.0.0-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Gradle: org.jlib:jlib-value:1.0.0" level="project" />
   </component>
 </module>

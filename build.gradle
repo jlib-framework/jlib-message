@@ -33,11 +33,7 @@ ext.detailedDescription = 'jlib framework providing means to use standardize mes
 
 apply from: 'jlib.gradle'
 
-repositories {
-    mavenLocal()
-}
-
 dependencies {
-    implementation 'org.jlib:jlib-value:1.0.0-SNAPSHOT'
+    implementation 'org.jlib:jlib-value:1.0.0'
 }
 
